@@ -1,21 +1,33 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: #111;
-    color: #fff;
+    background: url('assets/space-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
     text-align: center;
 }
 
+/* Header */
 header {
-    background: #222;
+    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
 }
 
-h1, h2 {
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
     color: #f8e112;
+    margin: 0;
 }
 
+p {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -29,8 +41,30 @@ nav ul li {
 nav ul li a {
     color: #f8e112;
     text-decoration: none;
+    font-weight: 400;
+    font-size: 1.1em;
 }
 
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    background: rgba(0, 0, 0, 0.7);
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #f8e112;
+}
+
+/* Profile Picture */
 .profile-pic {
     width: 200px;
     height: 200px;
@@ -40,8 +74,19 @@ nav ul li a {
     border: 3px solid #f8e112;
 }
 
+/* Links */
+a {
+    color: #f8e112;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     margin-top: 20px;
-    padding: 10px;
-    background: #222;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
 }
