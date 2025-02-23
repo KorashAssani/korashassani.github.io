@@ -3,8 +3,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    /* Use a softer dark-blue overlay for a soothing effect */
-    background: linear-gradient(rgba(10, 10, 30, 0.4), rgba(10, 10, 30, 0.4)), url('assets/space-bg.jpg') no-repeat center center fixed;
+    background: url('assets/space-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     text-align: center;
@@ -12,18 +11,16 @@ body {
 
 /* Header */
 header {
-    /* Softer than pure black, yet still ensuring text clarity */
-    background: rgba(10, 10, 30, 0.7);
+    background: rgba(0, 0, 0, 0.9);
     padding: 20px;
+    border-bottom: 2px solid #3a7bd5;
 }
 
 h1 {
     font-size: 2.5em;
     font-weight: 700;
-    color: #f8e112;
+    color: #3a7bd5;
     margin: 0;
-    /* Slightly lighter text shadow for a gentler look */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -35,7 +32,6 @@ p {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 10px 0;
 }
 
 nav ul li {
@@ -44,37 +40,32 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #f8e112;
+    color: #3a7bd5;
     text-decoration: none;
     font-weight: 400;
     font-size: 1.1em;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
+    color: #5fc9f3;
     text-decoration: underline;
-    color: #fff;
 }
 
 /* Sections */
 section {
-    /* A softer, dark-blue tone for sections provides a calm backdrop */
-    background: rgba(10, 10, 30, 0.6);
+    background: rgba(0, 0, 0, 0.75);
     margin: 40px auto;
     padding: 30px;
     max-width: 800px;
     border-radius: 10px;
-    /* A subtle box shadow for a gentle lift */
-    box-shadow: 0 4px 8px rgba(10, 10, 30, 0.3);
-    /* Left-align content for readability */
-    text-align: left;
+    box-shadow: 0 0 15px rgba(58, 123, 213, 0.5);
 }
 
-section h2 {
+h2 {
     font-size: 2em;
     font-weight: 600;
-    color: #f8e112;
-    margin-top: 0;
+    color: #3a7bd5;
 }
 
 /* Profile Picture */
@@ -84,16 +75,18 @@ section h2 {
     border-radius: 50%;
     display: block;
     margin: 20px auto;
-    border: 3px solid #f8e112;
+    border: 3px solid #3a7bd5;
 }
 
 /* Links */
 a {
-    color: #f8e112;
+    color: #5fc9f3;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
+    color: #3a7bd5;
     text-decoration: underline;
 }
 
@@ -101,5 +94,6 @@ a:hover {
 footer {
     margin-top: 20px;
     padding: 15px;
-    background: rgba(10, 10, 30, 0.7);
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid #3a7bd5;
 }
