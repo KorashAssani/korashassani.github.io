@@ -3,8 +3,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    /* Added a dark overlay to improve contrast over the space background */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/space-bg.jpg') no-repeat center center fixed;
+    /* Use a softer dark-blue overlay for a soothing effect */
+    background: linear-gradient(rgba(10, 10, 30, 0.4), rgba(10, 10, 30, 0.4)), url('assets/space-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     text-align: center;
@@ -12,7 +12,8 @@ body {
 
 /* Header */
 header {
-    background: rgba(0, 0, 0, 0.85);  /* Slightly darker for better text clarity */
+    /* Softer than pure black, yet still ensuring text clarity */
+    background: rgba(10, 10, 30, 0.7);
     padding: 20px;
 }
 
@@ -21,8 +22,8 @@ h1 {
     font-weight: 700;
     color: #f8e112;
     margin: 0;
-    /* Adding a subtle text shadow for enhanced legibility */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* Slightly lighter text shadow for a gentler look */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -57,14 +58,15 @@ nav ul li a:hover {
 
 /* Sections */
 section {
-    background: rgba(0, 0, 0, 0.8);
+    /* A softer, dark-blue tone for sections provides a calm backdrop */
+    background: rgba(10, 10, 30, 0.6);
     margin: 40px auto;
     padding: 30px;
     max-width: 800px;
     border-radius: 10px;
-    /* Added a box shadow for a subtle lift effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* Left-align text in content sections for easier reading */
+    /* A subtle box shadow for a gentle lift */
+    box-shadow: 0 4px 8px rgba(10, 10, 30, 0.3);
+    /* Left-align content for readability */
     text-align: left;
 }
 
@@ -99,5 +101,5 @@ a:hover {
 footer {
     margin-top: 20px;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(10, 10, 30, 0.7);
 }
