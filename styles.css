@@ -18,6 +18,7 @@
   box-sizing: border-box;
 }
 html {
+  font-size: 18px;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
@@ -26,6 +27,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
   line-height: 1.7;
 }
 h1,
@@ -37,12 +39,12 @@ h3,
   letter-spacing: -0.04em;
 }
 h1 {
-  font-size: clamp(2.7rem, 5.2vw, 4.8rem);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
   font-weight: 600;
   margin: 16px 0 24px;
 }
 h2 {
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
   font-weight: 600;
   margin: 12px 0 24px;
 }
@@ -74,8 +76,8 @@ img {
    -------------------------------------------------- */
 .wrap {
   width: 100%;
-  max-width: 1500px;
-  padding-inline: clamp(20px, 4vw, 64px);
+  max-width: 1680px;
+  padding-inline: clamp(24px, 3vw, 54px);
   margin-inline: auto;
 }
 
@@ -87,9 +89,9 @@ header {
 }
 .nav-wrap {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1680px;
   margin-inline: auto;
-  padding: 27px clamp(20px, 4vw, 64px);
+  padding: 27px clamp(24px, 3vw, 54px);
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -116,7 +118,7 @@ nav {
 }
 nav a {
   color: #d2d0dc;
-  font-size: 0.87rem;
+  font-size: 0.92rem;
 }
 nav a[aria-current] {
   color: var(--lavender);
@@ -126,7 +128,7 @@ nav a[aria-current] {
    -------------------------------------------------- */
 .eyebrow {
   color: var(--purple);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.17em;
   margin: 0 0 15px;
@@ -182,7 +184,7 @@ nav a[aria-current] {
   color: white;
   padding: 13px 23px;
   border-radius: 4px;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   font-weight: 600;
 }
 .button:hover {
@@ -269,7 +271,7 @@ nav a[aria-current] {
   background: white;
 }
 .cards figcaption {
-  font-size: 0.6rem;
+  font-size: 0.76rem;
   padding: 6px 14px;
   background: #f8f7fa;
 }
@@ -277,14 +279,14 @@ nav a[aria-current] {
   padding: 28px;
 }
 .card-body p:not(.eyebrow) {
-  font-size: 0.92rem;
+  font-size: 1rem;
   color: var(--muted);
 }
 .card-body .eyebrow {
-  font-size: 0.6rem;
+  font-size: 0.76rem;
 }
 .card-body a {
-  font-size: 0.87rem;
+  font-size: 0.94rem;
   font-weight: 600;
 }
 
@@ -313,7 +315,7 @@ footer {
   justify-content: space-between;
   gap: 35px;
   flex-wrap: wrap;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 footer strong {
   color: white;
@@ -355,12 +357,12 @@ footer small {
 }
 .research-row > div:first-child {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1370px;
 }
 .research-row > figure,
 .research-row > div:not(:first-child) {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1370px;
 }
 .research-row figure img {
   width: 100%;
@@ -390,15 +392,16 @@ figure {
   border-radius: 5px;
 }
 figcaption {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: var(--muted);
   padding-top: 12px;
 }
 
-/* Text pages
+/* Text pages: wider than before without extending to full monitor width
    -------------------------------------------------- */
 .prose {
-  max-width: 880px;
+  width: 100%;
+  max-width: 1200px;
   padding-bottom: 75px;
 }
 .prose h2 {
@@ -412,7 +415,7 @@ figcaption {
    -------------------------------------------------- */
 .publication {
   display: grid;
-  grid-template-columns: 65px 1fr 24px;
+  grid-template-columns: 65px minmax(0, 1fr) 24px;
   gap: 22px;
   padding: 28px 0;
   border-bottom: 1px solid var(--line);
@@ -425,7 +428,7 @@ figcaption {
   color: var(--ink);
 }
 .publication p {
-  font-size: 0.87rem;
+  font-size: 0.98rem;
   color: var(--muted);
   margin: 0;
 }
@@ -505,6 +508,9 @@ body:has(.publication) main {
 /* Mobile layout
    -------------------------------------------------- */
 @media (max-width: 620px) {
+  html {
+    font-size: 16px;
+  }
   .wrap {
     padding-left: 24px;
     padding-right: 24px;
@@ -567,7 +573,7 @@ body:has(.publication) main {
     margin-bottom: 35px;
   }
   .publication {
-    grid-template-columns: 45px 1fr;
+    grid-template-columns: 45px minmax(0, 1fr);
     gap: 12px;
   }
   .publication > a {
