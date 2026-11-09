@@ -8,7 +8,7 @@
       name="description"
       content="Korash Assani, astrophysicist at the University of Bern. JWST spectroscopy, star and planet formation, cosmic rays, and astrochemistry."
     />
-    <link rel="stylesheet" href="styles.css?v=20261019-2" />
+    <link rel="stylesheet" href="styles.css?v=20261109-research-tabs" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -41,6 +41,19 @@
         </p>
       </section>
       
+      <!-- Research topic selector: click to switch the discussion below. -->
+      <div class="wrap research-topic-navigation">
+        <p class="eyebrow">EXPLORE MY RESEARCH</p>
+        <div class="research-tabs" role="tablist" aria-label="Research themes">
+          <button class="research-tab is-active" type="button" role="tab" id="tab-cosmic-rays" aria-controls="panel-cosmic-rays" aria-selected="true" tabindex="0" data-topic="cosmic-rays">Cosmic Rays</button>
+          <button class="research-tab" type="button" role="tab" id="tab-dust" aria-controls="panel-dust" aria-selected="false" tabindex="-1" data-topic="dust">Dust</button>
+          <button class="research-tab" type="button" role="tab" id="tab-outflows" aria-controls="panel-outflows" aria-selected="false" tabindex="-1" data-topic="outflows">Protostellar Outflows</button>
+          <button class="research-tab" type="button" role="tab" id="tab-molecules" aria-controls="panel-molecules" aria-selected="false" tabindex="-1" data-topic="molecules">Complex Organic Molecules</button>
+          <button class="research-tab" type="button" role="tab" id="tab-variability" aria-controls="panel-variability" aria-selected="false" tabindex="-1" data-topic="variability">Variability</button>
+        </div>
+      </div>
+
+      <div class="research-panel" id="panel-cosmic-rays" role="tabpanel" aria-labelledby="tab-cosmic-rays">
       <section class="wrap research-row" id="cosmic-rays">
         <div>
           <p class="eyebrow">01 / COSMIC RAYS &amp; MOLECULAR HYDROGEN</p>
@@ -156,7 +169,9 @@
       </section>
 
       
-      <section class="wrap research-row" id="extinction">
+      </div>
+      <div class="research-panel" id="panel-dust" role="tabpanel" aria-labelledby="tab-dust" hidden>
+      <section class="wrap research-row" id="dust">
         <div>
           <p class="eyebrow">02 / DUST &amp; EXTINCTION</p>
 
@@ -283,6 +298,8 @@
       </section>
 
       
+      </div>
+      <div class="research-panel" id="panel-outflows" role="tabpanel" aria-labelledby="tab-outflows" hidden>
       <section class="wrap research-row" id="outflows">
         <div>
           <p class="eyebrow">03 / PROTOSTELLAR JETS &amp; OUTFLOWS</p>
@@ -382,7 +399,9 @@
       </section>
 
       
-      <section class="wrap prose">
+      </div>
+      <div class="research-panel" id="panel-molecules" role="tabpanel" aria-labelledby="tab-molecules" hidden>
+      <section class="wrap prose" id="molecules">
         <p class="eyebrow">CURRENT RESEARCH / MOLECULAR CHEMISTRY</p>
 
         <h2>Where do the building blocks of planetary chemistry come from?</h2>
@@ -418,6 +437,33 @@
         </p>
       </section>
 
+      </div>
+      <div class="research-panel" id="panel-variability" role="tabpanel" aria-labelledby="tab-variability" hidden>
+        <section class="wrap prose" id="variability">
+          <p class="eyebrow">05 / VARIABILITY &amp; ACCRETION</p>
+          <h2>What can changing young stars tell us about their disks?</h2>
+          <p>
+            Through my long-standing collaboration with Dr. Michael Sitko and colleagues,
+            I study how young stars and their circumstellar disks change over time.
+            Our observations of T Tauri and Herbig Ae/Be systems include infrared
+            spectroscopy with SpeX on NASA's Infrared Telescope Facility (IRTF),
+            allowing us to investigate changes in accretion and the inner disk.
+          </p>
+          <p>
+            Hydrogen emission lines such as Paβ, Brγ, and Brα trace gas associated
+            with accretion, while changes in infrared emission and extinction can
+            reveal evolving dust structures that sometimes obscure the star.
+            By following these systems over time, we can connect variability to
+            the physical processes shaping young stars and their planet-forming disks.
+          </p>
+          <p>
+            This work includes studies of occultation events in HD 163296,
+            wavelength-dependent extinction in 'dipper' stars, and gas dynamics
+            in variable young stellar systems. See my
+            <a href="publications.html">publications</a> for related papers.
+          </p>
+        </section>
+      </div>
     </main>
     <!-- Site footer -->
     <footer>
@@ -435,5 +481,49 @@
       </div>
       <small>© 2026 Korash Assani</small>
     </footer>
+    <script>
+      // Accessible research tabs: one topic visible at a time.
+      (() => {
+        const tabs = [...document.querySelectorAll('.research-tab')];
+        const panels = [...document.querySelectorAll('.research-panel')];
+
+        function activate(topic, updateHash = true) {
+          const chosen = tabs.find(tab => tab.dataset.topic === topic);
+          if (!chosen) return;
+          tabs.forEach(tab => {
+            const active = tab === chosen;
+            tab.classList.toggle('is-active', active);
+            tab.setAttribute('aria-selected', String(active));
+            tab.tabIndex = active ? 0 : -1;
+          });
+          panels.forEach(panel => {
+            panel.hidden = panel.id !== `panel-${topic}`;
+          });
+          if (updateHash) history.replaceState(null, '', `#${topic}`);
+        }
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => activate(tab.dataset.topic));
+          tab.addEventListener('keydown', event => {
+            let next = index;
+            if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+            else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+            else if (event.key === 'Home') next = 0;
+            else if (event.key === 'End') next = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            tabs[next].focus();
+            activate(tabs[next].dataset.topic);
+          });
+        });
+        const aliases = { extinction: 'dust' };
+        const initial = window.location.hash.slice(1);
+        activate(aliases[initial] || initial || 'cosmic-rays', false);
+        window.addEventListener('hashchange', () => {
+          const hash = window.location.hash.slice(1);
+          activate(aliases[hash] || hash, false);
+        });
+      })();
+    </script>
   </body>
 </html>
