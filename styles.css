@@ -12,13 +12,13 @@
   --line: #e1dfe7;
 }
 
-/* Base styles
+/* Base styles: 21px desktop body text, 18px mobile
    -------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
 html {
-  font-size: 18px;
+  font-size: 21px;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
@@ -28,7 +28,7 @@ body {
   color: var(--ink);
   font-family: "DM Sans", sans-serif;
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 h1,
 h2,
@@ -39,17 +39,17 @@ h3,
   letter-spacing: -0.04em;
 }
 h1 {
-  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-size: clamp(2.3rem, 4vw, 3.7rem);
   font-weight: 600;
   margin: 16px 0 24px;
 }
 h2 {
-  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
   font-weight: 600;
   margin: 12px 0 24px;
 }
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 16px;
 }
@@ -106,8 +106,8 @@ header {
 .brand span {
   display: block;
   font-family: "DM Sans", sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
   margin-top: 9px;
   color: #aaa9bd;
 }
@@ -118,7 +118,7 @@ nav {
 }
 nav a {
   color: #d2d0dc;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 nav a[aria-current] {
   color: var(--lavender);
@@ -128,7 +128,7 @@ nav a[aria-current] {
    -------------------------------------------------- */
 .eyebrow {
   color: var(--purple);
-  font-size: 0.78rem;
+  font-size: 0.83rem;
   font-weight: 700;
   letter-spacing: 0.17em;
   margin: 0 0 15px;
@@ -184,7 +184,7 @@ nav a[aria-current] {
   color: white;
   padding: 13px 23px;
   border-radius: 4px;
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   font-weight: 600;
 }
 .button:hover {
@@ -200,7 +200,7 @@ nav a[aria-current] {
   bottom: 15px;
   right: 24px;
   color: #eee;
-  font-size: 0.62rem;
+  font-size: 0.73rem;
   background: #10152580;
   padding: 4px 8px;
 }
@@ -271,7 +271,7 @@ nav a[aria-current] {
   background: white;
 }
 .cards figcaption {
-  font-size: 0.76rem;
+  font-size: 0.81rem;
   padding: 6px 14px;
   background: #f8f7fa;
 }
@@ -283,10 +283,10 @@ nav a[aria-current] {
   color: var(--muted);
 }
 .card-body .eyebrow {
-  font-size: 0.76rem;
+  font-size: 0.81rem;
 }
 .card-body a {
-  font-size: 0.94rem;
+  font-size: 0.96rem;
   font-weight: 600;
 }
 
@@ -315,7 +315,7 @@ footer {
   justify-content: space-between;
   gap: 35px;
   flex-wrap: wrap;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 footer strong {
   color: white;
@@ -392,7 +392,7 @@ figure {
   border-radius: 5px;
 }
 figcaption {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--muted);
   padding-top: 12px;
 }
@@ -421,14 +421,14 @@ figcaption {
   border-bottom: 1px solid var(--line);
 }
 .publication h3 {
-  font-size: 1.17rem;
+  font-size: 1.2rem;
   line-height: 1.45;
 }
 .publication h3 a {
   color: var(--ink);
 }
 .publication p {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--muted);
   margin: 0;
 }
@@ -509,7 +509,7 @@ body:has(.publication) main {
    -------------------------------------------------- */
 @media (max-width: 620px) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
   .wrap {
     padding-left: 24px;
@@ -522,7 +522,7 @@ body:has(.publication) main {
     gap: 12px 20px;
   }
   nav a {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
   }
   .hero {
     min-height: 610px;
@@ -630,7 +630,7 @@ body:has(.publication) main {
 }
 @media (max-width: 540px) {
   .research-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .research-tab { min-height: 65px; padding: 10px; font-size: .9rem; }
+  .research-tab { min-height: 65px; padding: 10px; font-size: .95rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .research-tab { transition: none; }
