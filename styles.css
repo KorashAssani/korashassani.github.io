@@ -73,9 +73,10 @@ img {
 /* Shared layout
    -------------------------------------------------- */
 .wrap {
-  max-width: 1180px;
-  padding: 0 40px;
-  margin: auto;
+  width: 100%;
+  max-width: 1500px;
+  padding-inline: clamp(20px, 4vw, 64px);
+  margin-inline: auto;
 }
 
 /* Header and navigation
@@ -85,9 +86,10 @@ header {
   color: white;
 }
 .nav-wrap {
-  max-width: 1320px;
-  margin: auto;
-  padding: 27px 40px;
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding: 27px clamp(20px, 4vw, 64px);
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -206,7 +208,7 @@ nav a[aria-current] {
 .about {
   display: grid;
   grid-template-columns: 310px 1fr;
-  gap: 90px;
+  gap: clamp(35px, 5vw, 90px);
   padding-top: 105px;
   padding-bottom: 105px;
   align-items: center;
@@ -304,7 +306,7 @@ nav a[aria-current] {
 /* Footer
    -------------------------------------------------- */
 footer {
-  padding: 45px max(40px, calc((100% - 1100px) / 2));
+  padding: 45px max(clamp(20px, 4vw, 64px), calc((100% - 1372px) / 2));
   background: var(--navy);
   color: #b9bdc9;
   display: flex;
@@ -340,15 +342,39 @@ footer small {
 
 /* Research page
    -------------------------------------------------- */
+/* Research discussions read from top to bottom: text first, figures below. */
 .research-row {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 65px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(24px, 3vw, 42px);
   padding-top: 35px;
   padding-bottom: 75px;
   border-bottom: 1px solid var(--line);
   margin-bottom: 40px;
+}
+.research-row > div:first-child {
+  width: 100%;
+  max-width: 1100px;
+}
+.research-row > figure,
+.research-row > div:not(:first-child) {
+  width: 100%;
+  max-width: 1100px;
+}
+.research-row figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.research-row > div:not(:first-child) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  align-items: start;
+}
+.research-row > div:not(:first-child) figure {
+  margin-bottom: 0;
 }
 .research-row p {
   color: var(--muted);
@@ -469,7 +495,7 @@ body:has(.publication) main {
     max-height: 300px;
   }
   .research-row {
-    gap: 30px;
+    gap: 28px;
   }
   .hero {
     min-height: 610px;
@@ -525,12 +551,15 @@ body:has(.publication) main {
   .highlights {
     padding: 60px 0;
   }
-  .research-row,
   .contact-grid {
     grid-template-columns: 1fr;
   }
   .research-row {
     padding-bottom: 45px;
+    gap: 22px;
+  }
+  .research-row > div:not(:first-child) {
+    grid-template-columns: 1fr;
   }
   .page-head {
     padding-top: 55px;
